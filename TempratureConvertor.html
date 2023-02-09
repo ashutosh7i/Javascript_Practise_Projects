@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <h1>Temprature Convertor</h1>
+    <form name="form" onkeyup="formProcessor()" onchange="resetForm()" >
+    <h1>Enter temprature in any one field to convert</h1>
+    Celsius: <input type="text" id="a1" name="inCelsius"><br><br>
+    Farenheit: <input type="text" id="a2" name="inFarenheit"><br><br>
+    Kelvin: <input type="text" id="a3" name="inKelvin"><br><br>
+    <button onclick="resetForm()">reset</button>
+    </form>
+    
+</body>
+<script>
+    function resetForm() {
+    document.getElementById("form").reset();
+    location.reload();
+    }
+    function formProcessor(){
+        let celsius = document.forms["form"]["inCelsius"].value;
+        let farenheit = document.forms["form"]["inFarenheit"].value;
+        let Kelvin = document.forms["form"]["inKelvin"].value;
+
+        console.log(celsius,farenheit,Kelvin);
+        //check if there is data in any of the field
+
+        //convert
+        if(celsius!==""&&farenheit===""&&Kelvin===""){
+            document.getElementById("a1").value = celsius;
+            document.getElementById("a2").value = ((celsius * 9/5) + 32);
+            document.getElementById("a3").value = (celsius + 273.15);
+        }
+        else if(celsius===""&&farenheit!==""&&Kelvin===""){
+            document.getElementById("a1").value = ((farenheit - 32) * 5/9); 
+            document.getElementById("a2").value = farenheit;
+            document.getElementById("a3").value = ((farenheit - 32) * 5/9 + 273.15);
+        }
+        else if(celsius===""&&farenheit===""&&Kelvin!==""){
+            document.getElementById("a1").value = (Kelvin - 273.15);
+            document.getElementById("a2").value = ((Kelvin - 273.15) * 9/5 + 32);
+            document.getElementById("a3").value = Kelvin;
+        }
+        // else{
+        //     alert("Enter a temperature in only one field");
+        // }
+    };
+</script>
+</html>
