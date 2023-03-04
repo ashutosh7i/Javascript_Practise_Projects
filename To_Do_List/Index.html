@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Simple List</title>
+</head>
+
+<!--External Js-->
+<script defer src = "script.js"></script>
+
+<!--Inline Css-->
+<style>
+    #heading{
+        text-align: center;
+    }
+    .list-item {  /*Operation on all list items*/
+    cursor: cell; /*this is what cursor looks like upon hovering*/
+    width:  min-content;
+  }
+  
+  .list-item:hover { /*operation while hovering*/
+    color: red;     
+    text-decoration: line-through;  /*red coloured strikethrough*/
+  }
+</style>
+
+<body>
+    <h1 id="heading">Simple To Do list Js</h1>
+    <h2> To do-</h2>
+
+    <!--A div for adding list items using js-->
+    <div id="list"> 
+        <!--item1-->
+        <!--item2-->
+        <!--item3...-->
+    </div>
+    
+    <br><br><br>
+
+    <!--form with id to be used in js-->
+    <form id="new-item-form">   
+        <label for="item-input">Add New Item</label>
+        <input type="text" id="item-input">
+        <button type="submit">Add Item</button>
+    </form>
+</body>
+</html>
